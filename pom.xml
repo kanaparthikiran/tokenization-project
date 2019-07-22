@@ -1,109 +1,166 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.malwarebytes.tokenization</groupId>
-  <artifactId>tokenization-project</artifactId>
-  <version>1</version>
-  <packaging>pom</packaging>
-  <name>tokenization-project</name>
-  <url>https://www.malwarebytes.com/</url>
+	<groupId>com.malwarebytes.tokenization</groupId>
+	<artifactId>tokenization-project</artifactId>
+	<version>1</version>
+	<packaging>pom</packaging>
+	<name>tokenization-project</name>
+	<url>https://www.malwarebytes.com/</url>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.2.RELEASE</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+	<properties>
+		<java.version>1.8</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.7</maven.compiler.source>
+		<maven.compiler.target>1.7</maven.compiler.target>
+		<enforcer.fail>true</enforcer.fail>
+		<enforcer.skip>false</enforcer.skip>
+		<enforcer.requireReleaseDeps.onlyWhenRelease>true</enforcer.requireReleaseDeps.onlyWhenRelease>
+		<versions-plugin.version>2.3</versions-plugin.version>
+		<!-- Checkstyle plugin is enabled by default. Override with "true" to disable. -->
+		<checkstyle.skip>false</checkstyle.skip>
+		<checkstyle.maxAllowedViolations>1</checkstyle.maxAllowedViolations>
+		<!-- User property to skip execution of all tests -->
+		<skipTests>false</skipTests>
+		<!-- User property to skip execution of unit tests -->
+		<skipUTs>false</skipUTs>
+		<!-- User property to skip execution of integration tests -->
+		<skipITs>true</skipITs>
+		<maven.test.redirectTestOutputToFile>true</maven.test.redirectTestOutputToFile>
+		<!-- Default encoding is UTF-8 -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<surefire.version>2.22.2</surefire.version>
+		<jacoco.version>0.8.3</jacoco.version>
+		<checkstyle.version>8.20</checkstyle.version>
+		<checkstyle.plugin.version>3.0.0</checkstyle.plugin.version>
+		<checkstyle.config.version>3.1.4</checkstyle.config.version>
+		<jacoco.skip>false</jacoco.skip>
+	</properties>
 
-   <properties>
-      <java.version>1.8</java.version>
-      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-      <maven.compiler.source>1.7</maven.compiler.source>
-      <maven.compiler.target>1.7</maven.compiler.target>
-      <enforcer.fail>true</enforcer.fail>
-      <enforcer.skip>false</enforcer.skip>
-      <enforcer.requireReleaseDeps.onlyWhenRelease>true</enforcer.requireReleaseDeps.onlyWhenRelease>
-      <versions-plugin.version>2.3</versions-plugin.version>
-      <!-- Checkstyle plugin is enabled by default. Override with "true" to disable. -->
-      <checkstyle.skip>false</checkstyle.skip>
-      <checkstyle.maxAllowedViolations>1</checkstyle.maxAllowedViolations>
-      <!-- User property to skip execution of all tests -->
-      <skipTests>false</skipTests>
-      <!-- User property to skip execution of unit tests -->
-      <skipUTs>false</skipUTs>
-      <!-- User property to skip execution of integration tests -->
-      <skipITs>true</skipITs>
-      <maven.test.redirectTestOutputToFile>true</maven.test.redirectTestOutputToFile>
-      <!-- Default encoding is UTF-8 -->
-      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-      <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-      <surefire.version>2.22.2</surefire.version>
-      <jacoco.version>0.8.3</jacoco.version>
-      <checkstyle.version>8.20</checkstyle.version>
-      <checkstyle.plugin.version>3.0.0</checkstyle.plugin.version>
-      <checkstyle.config.version>3.1.4</checkstyle.config.version>
-      <jacoco.skip>false</jacoco.skip>
-   </properties>
 
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
-    </dependency>
-    
-<!--     <dependency>
-	    <groupId>org.springframework.kafka</groupId>
-	    <artifactId>spring-kafka</artifactId>
-	    <version>2.2.7.RELEASE</version>
-	</dependency> -->
-	
-  </dependencies>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<!-- <version>4.11</version> -->
+			<scope>test</scope>
+		</dependency>
 
-  <build>
-    <pluginManagement>
-      <!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
-      <plugins>
-        <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
-        <plugin>
-          <artifactId>maven-clean-plugin</artifactId>
-          <version>3.1.0</version>
-        </plugin>
-        <!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
-        <plugin>
-          <artifactId>maven-resources-plugin</artifactId>
-          <version>3.0.2</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.8.0</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-surefire-plugin</artifactId>
-          <version>2.22.1</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-jar-plugin</artifactId>
-          <version>3.0.2</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-install-plugin</artifactId>
-          <version>2.5.2</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-deploy-plugin</artifactId>
-          <version>2.8.2</version>
-        </plugin>
-        <!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
-        <plugin>
-          <artifactId>maven-site-plugin</artifactId>
-          <version>3.7.1</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-project-info-reports-plugin</artifactId>
-          <version>3.0.0</version>
-        </plugin>
-      </plugins>
-    </pluginManagement>
-  </build>
-<modules>
-    <module>source</module>
-  <module>flow</module>
-  <module>proof</module>
-  </modules>
+
+
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+	<!-- 	<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency> -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-configuration</groupId>
+			<artifactId>commons-configuration</artifactId>
+			<version>1.9</version>
+
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.kafka</groupId>
+			<artifactId>spring-kafka</artifactId>
+			<!-- <version>2.2.3.RELEASE</version> -->
+		</dependency>
+	</dependencies>
+
+
+
+	<build>
+		<pluginManagement>
+			<!-- lock down plugins versions to avoid using Maven defaults (may be 
+				moved to parent pom) -->
+			<plugins>
+				<!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
+				<plugin>
+					<artifactId>maven-clean-plugin</artifactId>
+					<version>3.1.0</version>
+				</plugin>
+				<!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
+				<plugin>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>3.0.2</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.8.0</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>2.22.1</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>3.0.2</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-install-plugin</artifactId>
+					<version>2.5.2</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-deploy-plugin</artifactId>
+					<version>2.8.2</version>
+				</plugin>
+				<!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
+				<plugin>
+					<artifactId>maven-site-plugin</artifactId>
+					<version>3.7.1</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-project-info-reports-plugin</artifactId>
+					<version>3.0.0</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	<modules>
+		<module>source</module>
+		<module>flow</module>
+		<module>proof</module>
+	</modules>
 </project>
