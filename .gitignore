@@ -3,6 +3,7 @@
 /logs/*.log
 /target/
 /target/**
+*/target/**
 .settings/**
 .settings
 !.mvn/wrapper/maven-wrapper.jar
