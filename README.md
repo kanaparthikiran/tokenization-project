@@ -7,7 +7,7 @@ The Project is organized into three maven modules as follows under a parent proj
 
 ## 1) source module
 Contains the Code to Expose a Restful service for posting the Payment information.
-Creates a unique transactionID, and sends the message to data-input kafka topic,and shows the status message to Restful client.
+Creates a unique transactionID, and sends the message to data-input kafka topic,and responds with the status message to Restful client.
   
 ## 2) flow module
 Contains the code to consume the message sent from source module on the data-input topic. Extracts the message and encrypts the Credit Card Information(Token) and stores the TransactionId as Key and the Token as the value to the Redis store. The TransactionId and TokenId information is sent along to the topic data-output.
