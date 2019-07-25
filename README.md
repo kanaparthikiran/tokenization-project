@@ -5,19 +5,12 @@ Created tokenization project for Credit Card Tokenization.
 
 The Project is organized into three maven modules as follows. The parent project is called tokenization-project
 
-1) source module 
-  Contains the Code to Expose a Restful service for posting the Payment information, Creates a unique transactionID, and 
-  sends the message to data-input kafka topic,and shows the status message to Restful client.
+1)source module - Contains the Code to Expose a Restful service for posting the Payment information, Creates a unique  
+   transactionID, and sends the message to data-input kafka topic,and shows the status message to Restful client.
   
-2)flow module
-  Contains the code to consume the message sent from source module on the data-input topic. Extracts the message and    
-  encrypts the Credit Card Information(Token) and stores the TransactionId as Key and the Token as the value to the 
-  Redis store. The TransactionId and TokenId information is sent along to the topic data-input.
+2)flow module - Contains the code to consume the message sent from source module on the data-input topic. Extracts the message and encrypts the Credit Card Information(Token) and stores the TransactionId as Key and the Token as the value to the Redis store. The TransactionId and TokenId information is sent along to the topic data-input.
   
-3) proof module
-Consumes TransactionId, and Token information from data-output topic, using the TransactionId as the Key looks into the 
-Redis datastore and finds the Token. Once the Token is found the Token data is decrypted, and both the TransactionID and 
-decrypted CreditCard information are printed on the screen, in the follwing format.
+3)proof module - Consumes TransactionId, and Token information from data-output topic, using the TransactionId as the Key looks into the Redis datastore and finds the Token. Once the Token is found the Token data is decrypted, and both the TransactionID and decrypted CreditCard information are printed on the screen, in the follwing format.
 
 {"transactionId":{"cardNumber":"4444444444444448","expirationDate":"02/20","cvvNumber":"130"}}
 
