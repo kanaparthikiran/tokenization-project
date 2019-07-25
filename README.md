@@ -51,4 +51,4 @@ curl -X POST http://localhost:9000/api/auth -H 'Content-Type: application/json' 
 4) The TransactionId and Token information is sent to the proof module using the data-output topic. 
 5) The proof module reads the data-output topic data and gets the transactionID from the message and uses that transactionId to fetch the Token information from Redis data store. 
 6) The token information is decrypted and displayed on the screen in the follwing format.
-```{"transactionId":{"cardNumber":"4444444444444448","expirationDate":"02/20","cvvNumber":"130"}}
+{"transactionId":{"cardNumber":"4444444444444448","expirationDate":"02/20","cvvNumber":"130"}}
