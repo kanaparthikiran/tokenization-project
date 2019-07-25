@@ -34,7 +34,7 @@ Consumes TransactionId, and Token information from data-output topic, using the 
 3) Execute this script to setup Kafka and Redis, and start them $./start_kafka_redis.sh
 
 4) $mvn clean install, This command builds all the 3 modules(source,flow,proof) that are present under tokenization-project
-
+![Maven Clean Install](https://github.com/kanaparthikiran/tokenization-project/blob/master/images/MVN_CLEAN_INSTALL_ALL.png)
 5) Open a new Terminal tab and type this command to show source module logs $java -jar source/target/source-1.0.0.jar
 
 6) Open a new Terminal tab and type this command to show flow module logs  $java -jar target/flow-1.0.0.jar
