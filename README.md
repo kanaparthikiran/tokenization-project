@@ -1,9 +1,9 @@
 # tokenization-project
 Created tokenization project for Credit Card Tokenization.
 
-# I) Project Organization
+# I) Project Structure/Organization
 
-The Project is organized into three maven modules as follows. The parent project is called tokenization-project
+The Project is organized into three maven modules as follows under a parent project. The parent project is called tokenization-project
 
 1) source module - Contains the Code to Expose a Restful service for posting the Payment information.
 Creates a unique transactionID, and sends the message to data-input kafka topic,and shows the status message to Restful client.
