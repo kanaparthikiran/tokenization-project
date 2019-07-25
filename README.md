@@ -41,7 +41,7 @@ Creates a unique transactionID, and sends the message to data-input kafka topic,
 8) Open a new Terminal tab and type this command -
 curl -X POST http://localhost:9000/api/auth -H 'Content-Type: application/json' -d '{"cardNumber": "4444444444444448","expirationDate": "02/20","cvvNumber": "130"}'
 
-# Iv) Verifying the Results
+# IV) Verifying the Results
 1) Notice the logs on the source, flow, and proof Terminal tabs as they were opened in the previous steps. 
 2) The CreditCard Information is passed in from the curl command and reaches the source module which returns a status message and TransactionId. 
 3) The Credit Card Information is sent to downstream to the flow module using data-input topic. The CreditCard information is captured in the flow module, credit card information is encrypted(Tokenized) and stored into redis data store using TransactionId as the Key. 
