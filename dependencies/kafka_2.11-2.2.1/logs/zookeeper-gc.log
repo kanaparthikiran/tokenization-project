@@ -1,3 +1,0 @@
-[2019-07-25T10:54:21.970+0800][gc,heap] Heap region size: 1M
-[2019-07-25T10:54:21.977+0800][gc     ] Using G1
-[2019-07-25T10:54:21.977+0800][gc,heap,coops] Heap address: 0x00000007a0000000, size: 512 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
