@@ -32,7 +32,7 @@ The Project is organized into three maven modules as follows. The parent project
 
 4) $mvn clean install, This command builds all the 3 modules(source,flow,proof) that are present under tokenization-project
 
-5) Open a new Terminal tab and type this command to source module logs $java -jar source/target/source-1.0.jar
+5) Open a new Terminal tab and type this command to show source module logs $java -jar source/target/source-1.0.jar
 
 6) Open a new Terminal tab and type this command to show flow module logs  $java -jar target/flow-1.0.jar
 
