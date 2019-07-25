@@ -43,7 +43,7 @@ Consumes TransactionId, and Token information from data-output topic, using the 
 
 ![Source Module Run](https://github.com/kanaparthikiran/tokenization-project/blob/master/images/SOURCE_MODULE_RUN.png)
 
-6) Open a new Terminal tab and type this command to show flow module logs  $java -jar target/flow-1.0.0.jar
+6) Open a new Terminal tab and type this command to show flow module logs  $java -jar flow/target/flow-1.0.0.jar
 
 ![Flow Module Run](https://github.com/kanaparthikiran/tokenization-project/blob/master/images/FLOW_MODULE_RUN.png)
 
