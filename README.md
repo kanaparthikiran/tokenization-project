@@ -36,13 +36,16 @@ Consumes TransactionId, and Token information from data-output topic, using the 
 4) $mvn clean install, This command builds all the 3 modules(source,flow,proof) that are present under tokenization-project
 ![Maven Clean Install](https://github.com/kanaparthikiran/tokenization-project/blob/master/images/MVN_CLEAN_INSTALL_ALL.png)
 5) Open a new Terminal tab and type this command to show source module logs $java -jar source/target/source-1.0.0.jar
-
+![Source Module Run]https://github.com/kanaparthikiran/tokenization-project/blob/master/images/SOURCE_MODULE_RUN.png
 6) Open a new Terminal tab and type this command to show flow module logs  $java -jar target/flow-1.0.0.jar
+![Flow Module Run]https://github.com/kanaparthikiran/tokenization-project/blob/master/images/FLOW_MODULE_RUN.png
 
 7) Open a new Terminal tab and type this command to show proof module logs $java -jar proof/target/proof-1.0.0.jar
+![Proof Module Run]https://github.com/kanaparthikiran/tokenization-project/blob/master/images/PROOF_MODULE_RUN.png
 
 8) Open a new Terminal tab and type this command -
 curl -X POST http://localhost:9000/api/auth -H 'Content-Type: application/json' -d '{"cardNumber": "4444444444444448","expirationDate": "02/20","cvvNumber": "130"}'
+![Curl Module Run]https://github.com/kanaparthikiran/tokenization-project/blob/master/images/CURL_COMMAND_OUTPUT.png
 
 # IV) Verifying the Results
 1) Notice the logs on the source, flow, and proof Terminal tabs as they were opened in the previous steps. 
