@@ -10,7 +10,7 @@ Contains the Code to Expose a Restful service for posting the Payment informatio
 Creates a unique transactionID, and sends the message to data-input kafka topic,and shows the status message to Restful client.
   
 ## 2) flow module
-Contains the code to consume the message sent from source module on the data-input topic. Extracts the message and encrypts the Credit Card Information(Token) and stores the TransactionId as Key and the Token as the value to the Redis store. The TransactionId and TokenId information is sent along to the topic data-input.
+Contains the code to consume the message sent from source module on the data-input topic. Extracts the message and encrypts the Credit Card Information(Token) and stores the TransactionId as Key and the Token as the value to the Redis store. The TransactionId and TokenId information is sent along to the topic data-output.
   
 ## 3) proof module 
 Consumes TransactionId, and Token information from data-output topic, using the TransactionId as the Key looks into the Redis datastore and finds the Token. Once the Token is found the Token data is decrypted, and both the TransactionID and decrypted CreditCard information are printed on the screen, in the follwing format.
@@ -53,6 +53,6 @@ curl -X POST http://localhost:9000/api/auth -H 'Content-Type: application/json' 
 2) The CreditCard Information is passed in from the curl command and reaches the source module which returns a status message and TransactionId to the caller. 
 3) The Credit Card Information is sent from source module to the flow module using data-input topic. The CreditCard information is captured in the flow module, encrypted(Tokenized) and stored into redis data store using TransactionId as the Key. 
 4) The TransactionId and Token information is sent to passed to the proof module from the flow module using data-output topic. 
-5) The proof module reads the data-output topic data and gets the transactionID from the message and uses that transactionId to fetch the Token information from Redis data store.
-6) The token information is decrypted and displayed on the screen in the follwing format.
+5) The proof module reads the data-output topic data and gets the transactionID from the message and uses that transactionId to fetch the Token information from Redis data store.The token information is decrypted and displayed on the screen in the follwing format.
+
 {"transactionId":{"cardNumber":"4444444444444448","expirationDate":"02/20","cvvNumber":"130"}}
