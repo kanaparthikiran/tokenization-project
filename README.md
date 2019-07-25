@@ -14,7 +14,7 @@ Creates a unique transactionID, and sends the message to data-input kafka topic,
 
 {"transactionId":{"cardNumber":"4444444444444448","expirationDate":"02/20","cvvNumber":"130"}}
 
-# II) SOFTWARE PRE REQUISITES/TESTING ENVIRONMENT
+# II) SOFTWARE PRE-REQUISITES/TESTING ENVIRONMENT
 
 1) JDK 1.8 
 2) Maven 3+ version
