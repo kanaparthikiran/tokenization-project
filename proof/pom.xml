@@ -9,8 +9,8 @@
 
 <!--   <groupId>com.malwarebytes.tokenization</groupId>
  -->  <artifactId>proof</artifactId>
-  <version>7</version>
-
+<!--   <version>1</version>
+ -->
   <name>proof</name>
   <url>https://www.malwarebytes.com/</url>
 

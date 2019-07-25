@@ -9,9 +9,11 @@
 
 <!--   <groupId>com.malwarebytes.tokenization</groupId>
  -->  <artifactId>source</artifactId>
-  <version>7</version>
+  <version>1</version>
 
   <name>source</name>
+    <packaging>jar</packaging>
+  
   <url>https://www.malwarebytes.com/</url>
 
   <properties>
@@ -20,7 +22,7 @@
     <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
 
-  <dependencies>
+  <!-- <dependencies>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -34,7 +36,7 @@
 	    <version>2.2.7.RELEASE</version>
 	</dependency>
 	
-  </dependencies>
+  </dependencies> -->
 
   <build>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->

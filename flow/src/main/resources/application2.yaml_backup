@@ -1,0 +1,50 @@
+server:
+  port: 9000  
+spring:
+#  main:
+#    web-application-type: servlet
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: group-id
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      topic: data-input
+    producer:
+      bootstrap-servers: localhost:9092
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      topic: data-input
+  redis: 
+      repositories: 
+        enabled: true
+      host: localhost
+      port: 6379
+      password:  
+      lettuce:
+        shutdown-timeout: 200ms 
+        pool:
+          max-active: 7 
+          max-idle: 7
+          min-idle: 2
+          max-wait: 500ms  
+security:
+  algorithm: RC5
+  secretKey: ThisisInternalKey
+  salt: applecharliesaltpepperanythingrandomofoutchoice
+  
+  data: 
+    redis: 
+      repositories: 
+          enabled: true
+  
+#  
+#  # Whether to enable Redis repositories.
+#spring.data.redis.repositories.enabled=true
+#
+## Redis server host, default localhost
+#spring.redis.host=localhost
+#
+## Redis server port. default 6379
+#spring.redis.port=6379

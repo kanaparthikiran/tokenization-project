@@ -5,4 +5,4 @@ sh dependencies/kafka_2.11-2.2.1/bin/zookeeper-server-start.sh dependencies/kafk
 
 sh dependencies/kafka_2.11-2.2.1/bin/kafka-server-start.sh dependencies/kafka_2.11-2.2.1/config/server.properties&
 
-chmod  +x dependencies/redis-stable/src/redis-server && dependencies/redis-stable/src/redis-server
+chmod  +x dependencies/redis-stable/src/redis-server && dependencies/redis-stable/src/redis-server&
