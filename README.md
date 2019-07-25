@@ -35,11 +35,11 @@ Consumes TransactionId, and Token information from data-output topic, using the 
 
 4) $mvn clean install, This command builds all the 3 modules(source,flow,proof) that are present under tokenization-project
 
-5) Open a new Terminal tab and type this command to show source module logs $java -jar source/target/source-1.0.jar
+5) Open a new Terminal tab and type this command to show source module logs $java -jar source/target/source-1.0.0.jar
 
-6) Open a new Terminal tab and type this command to show flow module logs  $java -jar target/flow-1.0.jar
+6) Open a new Terminal tab and type this command to show flow module logs  $java -jar target/flow-1.0.0.jar
 
-7) Open a new Terminal tab and type this command to show proof module logs $java -jar proof/target/proof-1.0.jar
+7) Open a new Terminal tab and type this command to show proof module logs $java -jar proof/target/proof-1.0.0.jar
 
 8) Open a new Terminal tab and type this command -
 curl -X POST http://localhost:9000/api/auth -H 'Content-Type: application/json' -d '{"cardNumber": "4444444444444448","expirationDate": "02/20","cvvNumber": "130"}'
