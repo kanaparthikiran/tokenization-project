@@ -69,5 +69,5 @@ curl -X POST http://localhost:9000/api/auth -H 'Content-Type: application/json' 
 The following items can be added in the RoadMap and for future enhancements.
 
 1) We can add more test coverage.
-2) Extract some comman logic among the modules into a separate library.
-3) Perform PCI scanning for the code using tools like Fortify, as it involves PCI related code.
+2) Extract some common logic among the modules into a library, like security related code into a common library.
+3) Perform PCI scanning for the code using tools like Fortify, as the code is PCI related.
