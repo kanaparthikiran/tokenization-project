@@ -64,3 +64,10 @@ curl -X POST http://localhost:9000/api/auth -H 'Content-Type: application/json' 
 5) The proof module reads the data-output topic data and gets the transactionID from the message and uses that transactionId to fetch the Token information from Redis data store.The token information is decrypted and displayed on the screen in the follwing format.
 
 {"transactionId":{"cardNumber":"4444444444444448","expirationDate":"02/20","cvvNumber":"130"}}
+
+# V) Road Map & Enhancements
+The following items can be added in the RoadMap and for future enhancements.
+
+1) We can add more test coverage.
+2) Make the some comman functonalities into a separate library.
+3) Perform PCI scanning for the code using tools like Fortify, as it involves PCI related code.
