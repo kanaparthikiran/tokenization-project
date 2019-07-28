@@ -1,5 +1,5 @@
 # tokenization-project
-Created tokenization project for Credit Card Tokenization.
+Created project for Credit Card Tokenization.
 
 # I) Project Structure/Organization
 
